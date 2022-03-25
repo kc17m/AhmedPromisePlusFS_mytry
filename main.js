@@ -31,11 +31,13 @@ if (!fs.existsSync("./myFolder")) {
 }
 
 if (!fs.existsSync("./myFolder/ThirdFolder/hallo.txt", "Hallo Welt in hallo.txt") || (!fs.existsSync("./myFolder/ThirdFolder/welt.txt"))) {
-    createFile("./myFolder/ThirdFolder/hallo.txt", "Hallo Welt in hallo.txt")
-        .then(() => createFile("./myFolder/ThirdFolder/welt.txt", "Hallo Welt in welt.txt"))
-        .catch((err) => {
-            console.log(err)
-        })
+    Promise.all([
+        createFile("./myFolder/ThirdFolder/hallo.txt", "Hallo Welt in hallo.txt"),
+        createFile("./myFolder/ThirdFolder/welt.txt", "Hallo Welt in welt.txt")
+    ]).then(arr => {
+        console.log(arr)
+    })
 }
+
 
 
