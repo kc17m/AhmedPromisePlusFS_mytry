@@ -30,7 +30,7 @@ if (!fs.existsSync("./myFolder")) {
         })
 }
 
-if (!fs.existsSync("./myFolder/myThirdFolder/hallo.txt") || (!fs.existsSync("./myFolder/myThirdFolder/welt.txt"))) {
+if ((!fs.existsSync("./myFolder/myThirdFolder/hallo.txt")) || (!fs.existsSync("./myFolder/myThirdFolder/welt.txt"))) {
     Promise.all([
         createFile("./myFolder/myThirdFolder/hallo.txt", "Hallo Welt in hallo.txt"),
         createFile("./myFolder/myThirdFolder/welt.txt", "Hallo Welt in welt.txt")
