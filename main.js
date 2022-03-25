@@ -24,20 +24,21 @@ function createFile(path, fileContent) {
 if (!fs.existsSync("./myFolder")) {
     createFolder("./myFolder")
         .then(() => createFolder("./myFolder/mySecondFolder"))
-        .then(() => createFolder("./myFolder/ThirdFolder"))
+        .then(() => createFolder("./myFolder/myThirdFolder"))
         .catch((err) => {
             console.log(err)
         })
 }
 
-if (!fs.existsSync("./myFolder/ThirdFolder/hallo.txt", "Hallo Welt in hallo.txt") || (!fs.existsSync("./myFolder/ThirdFolder/welt.txt"))) {
+if (!fs.existsSync("./myFolder/myThirdFolder/hallo.txt") || (!fs.existsSync("./myFolder/myThirdFolder/welt.txt"))) {
     Promise.all([
-        createFile("./myFolder/ThirdFolder/hallo.txt", "Hallo Welt in hallo.txt"),
-        createFile("./myFolder/ThirdFolder/welt.txt", "Hallo Welt in welt.txt")
+        createFile("./myFolder/myThirdFolder/hallo.txt", "Hallo Welt in hallo.txt"),
+        createFile("./myFolder/myThirdFolder/welt.txt", "Hallo Welt in welt.txt")
     ]).then(arr => {
         console.log(arr)
     })
 }
+
 
 
 
